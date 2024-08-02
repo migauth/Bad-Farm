@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://7fg8ii5nb7f3"]
+
+[ext_resource type="Texture2D" uid="uid://ci8g1pgcfsl01" path="res://assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_6lrh6"]
+
+[node name="PlayerFarmer" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6lrh6")
+hframes = 4
+vframes = 4
