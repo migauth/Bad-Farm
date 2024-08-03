@@ -5,4 +5,4 @@
 [node name="Game_level" type="Node2D"]
 
 [node name="PlayerFarmer" parent="." instance=ExtResource("1_7uwe2")]
-position = Vector2(41, 35)
+position = Vector2(87, 48)
