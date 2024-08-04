@@ -443,6 +443,9 @@ sources/1 = SubResource("TileSetAtlasSource_dpmoe")
 [node name="PlayerFarmer" parent="." instance=ExtResource("1_7uwe2")]
 position = Vector2(2, 36)
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerFarmer"]
+remote_path = NodePath("../../Camera2D")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_r6y1k")
 format = 2
@@ -452,3 +455,7 @@ layer_0/tile_data = PackedInt32Array(196611, 65536, 1, 65539, 65536, 1, 131075, 
 layer_1/name = "TopGround"
 layer_1/z_index = -5
 layer_1/tile_data = PackedInt32Array(3, 1, 0, 65539, 1, 1, 131075, 1, 2, 4, 65537, 0, 65540, 589825, 4, 131076, 589825, 5, 5, 65537, 0, 65541, 655361, 4, 131077, 655361, 5, 196612, 589825, 6, 262148, 589825, 6, 196613, 655361, 6, 262149, 655361, 6, 131078, 131073, 2, 65542, 131073, 1, 6, 131073, 0)
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2, 36)
