@@ -463,3 +463,4 @@ position = Vector2(2, 36)
 
 [node name="Cow" parent="." instance=ExtResource("4_3xtgt")]
 position = Vector2(-29, 12)
+move_speed = 30.0
