@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://cho36liwammkm"]
+
+[ext_resource type="Texture2D" uid="uid://biisk3cx4drud" path="res://assets/Sprout Lands - Sprites - Basic pack/Characters/Free Cow Sprites.png" id="1_ip05u"]
+
+[sub_resource type="Animation" id="Animation_k0q6u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_h35t6"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_683ih"]
+_data = {
+"RESET": SubResource("Animation_k0q6u"),
+"idle": SubResource("Animation_h35t6")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0of8p"]
+size = Vector2(21, 21.75)
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_jt2x4"]
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cepou"]
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_jt2x4")
+states/Idle/position = Vector2(373, 99.75)
+
+[node name="Cow" type="CharacterBody2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CollisionShape2D")
+libraries = {
+"": SubResource("AnimationLibrary_683ih")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ip05u")
+hframes = 3
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 12.125)
+shape = SubResource("RectangleShape2D_0of8p")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_cepou")
+parameters/Idle/blend_position = Vector2(0, 0)
