@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://deqhetkxhiyjg"]
+
+[ext_resource type="Texture2D" uid="uid://hea46ye8s874" path="res://assets/Main.png" id="1_kaw4r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rypta"]
+size = Vector2(14, 15)
+
+[node name="NewGuy" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kaw4r")
+hframes = 5
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_rypta")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CollisionShape2D")

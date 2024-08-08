@@ -279,3 +279,5 @@ tree_root = SubResource("AnimationNodeStateMachine_cepou")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle_right/blend_position = Vector2(0.000719905, -0.00866139)
 parameters/walk_right/blend_position = Vector2(-0.000719965, 0.00262475)
+
+[node name="Timer" type="Timer" parent="."]
