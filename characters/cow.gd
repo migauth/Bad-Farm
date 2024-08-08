@@ -19,9 +19,10 @@ func _ready():
 	pick_new_state()
 	
 func _physics_process(delta):	
-	velocity = move_direction * move_speed
+	if (current_state == COW_STATE.WALK):
+		velocity = move_direction * move_speed
 	
-	move_and_slide()
+		move_and_slide()
 
 func select_new_direction():
 	move_direction = Vector2(
@@ -44,3 +45,7 @@ func pick_new_state():
 		state_machine.travel("idle_right")
 		current_state = COW_STATE.IDLE
 		timer.start(idle_time)
+
+
+func _on_timer_timeout():
+	pick_new_state()

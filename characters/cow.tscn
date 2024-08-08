@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cho36liwammkm"]
+[gd_scene load_steps=31 format=3 uid="uid://cho36liwammkm"]
 
 [ext_resource type="Script" path="res://characters/cow.gd" id="1_gevr8"]
 [ext_resource type="Texture2D" uid="uid://biisk3cx4drud" path="res://assets/Sprout Lands - Sprites - Basic pack/Characters/Free Cow Sprites.png" id="1_ip05u"]
@@ -162,9 +162,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0of8p"]
 size = Vector2(21, 21.75)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_35my7"]
-animation = &"idle_right"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h11xs"]
 animation = &"idle_right"
 
@@ -174,40 +171,33 @@ animation = &"idle_right"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pt8si"]
 animation = &"idle_right"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qqvlt"]
-animation = &"idle_up"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p2rpu"]
 animation = &"idle_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o0hjo"]
-animation = &"idle_up"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_04h0a"]
-animation = &"idle_down"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8y8t5"]
 animation = &"idle_left"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mk3s2"]
+animation = &"idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6j2ns"]
+animation = &"idle_up"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_jt2x4"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_35my7")
-blend_point_0/pos = Vector2(1, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_h11xs")
-blend_point_1/pos = Vector2(0, 1.1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_jjrq5")
-blend_point_2/pos = Vector2(0, -1.1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_pt8si")
+blend_point_0/node = SubResource("AnimationNodeAnimation_h11xs")
+blend_point_0/pos = Vector2(0, -0.9)
+blend_point_1/node = SubResource("AnimationNodeAnimation_jjrq5")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_pt8si")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_p2rpu")
 blend_point_3/pos = Vector2(1, 0)
-blend_point_4/node = SubResource("AnimationNodeAnimation_qqvlt")
-blend_point_4/pos = Vector2(0, 1.1)
-blend_point_5/node = SubResource("AnimationNodeAnimation_p2rpu")
-blend_point_5/pos = Vector2(1, 0)
-blend_point_6/node = SubResource("AnimationNodeAnimation_o0hjo")
-blend_point_6/pos = Vector2(0, -1.1)
-blend_point_7/node = SubResource("AnimationNodeAnimation_04h0a")
-blend_point_7/pos = Vector2(0, 1.1)
-blend_point_8/node = SubResource("AnimationNodeAnimation_8y8t5")
-blend_point_8/pos = Vector2(-1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_8y8t5")
+blend_point_4/pos = Vector2(-1, 0)
+blend_point_5/node = SubResource("AnimationNodeAnimation_mk3s2")
+blend_point_5/pos = Vector2(0, 1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_6j2ns")
+blend_point_6/pos = Vector2(0, -0.9)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
@@ -239,21 +229,20 @@ max_space = Vector2(1, 1.1)
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i8hdd"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8x8cy"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ofdm4"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gxdc2"]
-xfade_time = 5.0
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pr4h4"]
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cepou"]
-states/Start/position = Vector2(199.5, 99.8402)
+states/Start/position = Vector2(199.5, 99.9201)
 states/idle_right/node = SubResource("AnimationNodeBlendSpace2D_jt2x4")
 states/idle_right/position = Vector2(371.5, 100.045)
 states/walk_right/node = SubResource("AnimationNodeBlendSpace2D_rvxux")
-states/walk_right/position = Vector2(568.075, 100.09)
-transitions = ["Start", "idle_right", SubResource("AnimationNodeStateMachineTransition_i8hdd"), "idle_right", "walk_right", SubResource("AnimationNodeStateMachineTransition_8x8cy"), "walk_right", "idle_right", SubResource("AnimationNodeStateMachineTransition_gxdc2")]
-graph_offset = Vector2(51.5099, 31.02)
+states/walk_right/position = Vector2(567.575, 100.023)
+transitions = ["Start", "idle_right", SubResource("AnimationNodeStateMachineTransition_i8hdd"), "idle_right", "walk_right", SubResource("AnimationNodeStateMachineTransition_ofdm4"), "walk_right", "idle_right", SubResource("AnimationNodeStateMachineTransition_pr4h4")]
+graph_offset = Vector2(206.76, -73.6725)
 
 [node name="Cow" type="CharacterBody2D"]
 script = ExtResource("1_gevr8")
@@ -277,7 +266,9 @@ shape = SubResource("RectangleShape2D_0of8p")
 root_node = NodePath("../CollisionShape2D")
 tree_root = SubResource("AnimationNodeStateMachine_cepou")
 anim_player = NodePath("../AnimationPlayer")
-parameters/idle_right/blend_position = Vector2(0.000719905, -0.00866139)
+parameters/idle_right/blend_position = Vector2(0, 0)
 parameters/walk_right/blend_position = Vector2(-0.000719965, 0.00262475)
 
 [node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

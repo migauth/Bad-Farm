@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://7fg8ii5nb7f3" path="res://characters/player.tscn" id="1_7uwe2"]
 [ext_resource type="Texture2D" uid="uid://j25gmtucn5tx" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Grass.png" id="2_eoefi"]
 [ext_resource type="Texture2D" uid="uid://behf35xq1fhhv" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="3_m8xmn"]
-[ext_resource type="PackedScene" uid="uid://cho36liwammkm" path="res://characters/cow.tscn" id="4_3xtgt"]
+[ext_resource type="PackedScene" uid="uid://d0q71geiaarmu" path="res://characters/new_cow.tscn" id="4_1hbl1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8aymd"]
 texture = ExtResource("2_eoefi")
@@ -461,7 +461,7 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, 36)
 
-[node name="Cow" parent="." instance=ExtResource("4_3xtgt")]
-position = Vector2(-29, 12)
-
 [node name="Timer" type="Timer" parent="."]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_1hbl1")]
+position = Vector2(-55, 33)
